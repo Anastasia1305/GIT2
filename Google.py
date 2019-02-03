@@ -35,5 +35,8 @@ class Search(unittest.TestCase):
         checkfirstlinkagain = elm.get_attribute('href')
         assert checkfirstlinkagain in checklink
 
+    def tearDown(self):
+        self.drv.close()
+
 if __name__ == '__main__':
     unittest.main()
