@@ -31,6 +31,7 @@ class Search(unittest.TestCase):
         #возврат на вкладку все
         elm = self.drv.find_element_by_xpath('//*[@id="hdtb-msb-vis"]/div[1]/a')
         elm.click()
+        #Сравнение ссылок
         elm = self.drv.find_element_by_xpath('//*[@id="rso"]/div[1]/div/div/div/div/div[1]/a')
         checkfirstlinkagain = elm.get_attribute('href')
         assert checkfirstlinkagain in checklink
