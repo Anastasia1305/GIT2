@@ -1,4 +1,4 @@
-from selenium import webdriver
+ï»¿from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
@@ -6,47 +6,47 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
-# Îòêğûâàåì www.google.ru
+# ĞÑ‚ĞºÑ€Ñ‹Ğ²Ğ°ĞµĞ¼ www.google.ru
 driver.get("https://www.google.ru")
 
 try:
-    # æäåì çàãğóçêè ïîèñêîâîé ñòğîêè 5 ñåê max
+    # Ğ¶Ğ´ĞµĞ¼ Ğ·Ğ°Ğ³Ñ€ÑƒĞ·ĞºĞ¸ Ğ¿Ğ¾Ğ¸ÑĞºĞ¾Ğ²Ğ¾Ğ¹ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ 5 ÑĞµĞº max
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'input.gLFyf')))
 
-    # Ââîäèì Selenide
+    # Ğ’Ğ²Ğ¾Ğ´Ğ¸Ğ¼ Selenide
     element.send_keys("Selenide", Keys.ENTER)
 
-    # ïåğâàÿ ññûëêà è ñîõğàíåíèå
+    # Ğ¿ĞµÑ€Ğ²Ğ°Ñ ÑÑÑ‹Ğ»ĞºĞ° Ğ¸ ÑĞ¾Ñ…Ñ€Ğ°Ğ½ĞµĞ½Ğ¸Ğµ
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'div.r>a')))
     checklink = element.get_attribute('href')
     assert "https://ru.selenide.org/" in checklink
     print(checklink + " first result is correct")
 
-    # ïåğåõîä â ğàçäåë åùå
+    # Ğ¿ĞµÑ€ĞµÑ…Ğ¾Ğ´ Ğ² Ñ€Ğ°Ğ·Ğ´ĞµĞ» ĞµÑ‰Ğµ
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'a.Cq34nf')))
     element.click()
 
-    # ïåğåõîä â ğàçäåë êàğòèíêè
+    # Ğ¿ĞµÑ€ĞµÑ…Ğ¾Ğ´ Ğ² Ñ€Ğ°Ğ·Ğ´ĞµĞ» ĞºĞ°Ñ€Ñ‚Ğ¸Ğ½ĞºĞ¸
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, '[id=lb]>div>a')))
     element.click()
 
-    # ññûëêà  ñîîòíîøåíèå êàğòèíêè ñîõğàíåíèå
+    # ÑÑÑ‹Ğ»ĞºĞ°  ÑĞ¾Ğ¾Ñ‚Ğ½Ğ¾ÑˆĞµĞ½Ğ¸Ğµ ĞºĞ°Ñ€Ñ‚Ğ¸Ğ½ĞºĞ¸ ÑĞ¾Ñ…Ñ€Ğ°Ğ½ĞµĞ½Ğ¸Ğµ
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'div.nJGrxf')))
     checkpicture = element.text.strip()
     assert checkpicture in "selenide.org"
     print("First picture is corresponded to Selenide website")
 
-    # âîçâğàò íà âêëàäêó âñå
+    # Ğ²Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‚ Ğ½Ğ° Ğ²ĞºĞ»Ğ°Ğ´ĞºÑƒ Ğ²ÑĞµ
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'a.q')))
     element.click()
 
-    # Ñğàâíåíèå ññûëîê
+    # Ğ¡Ñ€Ğ°Ğ²Ğ½ĞµĞ½Ğ¸Ğµ ÑÑÑ‹Ğ»Ğ¾Ğº
     element = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'div.r>a')))
     checkfirstlinkagain = element.get_attribute('href')
